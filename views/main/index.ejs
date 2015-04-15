@@ -1,0 +1,23 @@
+<% include ../partials/header.ejs %>
+<h1>My home page</h1>
+
+<% include ../partials/alerts.ejs %>
+
+<% if(user) { %>
+Hello, <b><%= typeof user.name === 'string' ? user.name : 'Unknown' %></b>.
+<a href="/auth/logout">Log out</a>
+<% } %>
+<tr></tr>
+ <div class="row voffset6">
+  <div class="col-xs-12 col-sm-10 col-md-6 col-md-offset-3 col-sm-offset-1">
+  <h1>WeMail&trade;</h1>
+<br><br>
+
+<a href="/restricted" class="ghost-button-transition">Go to restricted page</a>
+<a href="/auth/login" class="ghost-button-transition">Login</a>
+<a href="/auth/signup" class="ghost-button-transition">Signup</a>
+
+</div>
+</div>
+
+<% include ../partials/footer.ejs %>
