@@ -23,6 +23,7 @@ body {
   color: #fff;
   border: 3px solid #fff;
   text-align: center;
+  background-color:none;
   outline: none;
   text-decoration: none;
   text-transform:uppercase;
@@ -46,6 +47,9 @@ body {
   background-color: #fff;
   color: #000;
 }*/
+h1 {
+  color:white;
+}
 mainlink, mainlink:hover,mainlink:active,mainlink:visited {
   color:white;
   text-decoration: none;
