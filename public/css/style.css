@@ -50,7 +50,7 @@ body {
 h1 {
   color:white;
 }
-mainlink, mainlink:a, mainlink:a:hover,mainlink:a:active,mainlink:a:visited {
+.mainlink, .mainlink:a, .mainlink:a:hover, .mainlink:a:active, .mainlink:a:visited {
   color:white;
   text-decoration: none;
 }
