@@ -28,7 +28,7 @@ email.setHtml('Wait a minute...<br><br><strong>%how% <br><br><h1>wow cool okay</
 email.addSubstitution("%how%", req.body.content);
 email.addHeader('X-Sent-Using', 'SendGrid-API');
 email.addHeader('X-Transport', 'web');
-email.addFile({path: '../public/images/stalk-much.jpg', filename: 'stalk-much.jpg'});
+// email.addFile({path: '../public/images/stalk-much.jpg', filename: 'stalk-much.jpg'});
 
 sendgrid.send(email, function(err, json) {
   if (err) { return console.error(err); }
