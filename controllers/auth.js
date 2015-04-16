@@ -92,6 +92,7 @@ router.get('/callback/:provider',function(req,res){
       passport.authenticate(req.params.provider, function(err,user,info){
       if(user){
         console.log("FOUDN USER", user);
+        req.session.x = user.email;
         req.login(user,function(err){
           if(err) throw err;
           req.flash('success','You are now logged in.');

@@ -126,5 +126,5 @@ app.use('/auth',require('./controllers/auth.js'));
 app.use('/email',require('./controllers/email.js'));
 
 //listen for connections
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 console.log("Server on 3000 bish!");
