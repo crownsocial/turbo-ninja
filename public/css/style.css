@@ -46,7 +46,7 @@ body {
   background-color: #fff;
   color: #000;
 }*/
-h1, h1:hover,h1:active,h1:visited {
+mainlink, mainlink:hover,mainlink:active,mainlink:visited {
   color:white;
   text-decoration: none;
 }

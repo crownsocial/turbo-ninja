@@ -20,7 +20,7 @@ router.post('/login',function(req,res){
           req.flash('success','You are now logged in.');
           req.session.x = req.body.email;
           console.log(req.session.x);
-          res.redirect('/');
+          res.redirect('/restricted');
         })
       }else{
         var errorMsg = info && info.message ? info.message : 'Unknown error.';
