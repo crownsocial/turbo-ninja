@@ -9,7 +9,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 var NODE_ENV = process.env.NODE_ENV || 'development';
-var BASE_URL = (NODE_ENV === 'production') ? 'https://something.herokuapps.com' : 'http://localhost:3000';
+var BASE_URL = (NODE_ENV === 'production') ? 'https://SOMETHINGSOMETHING.herokuapps.com' : 'http://localhost:3000';
+
+
 
 // Passport
 passport.serializeUser(function(user,done) {
@@ -108,9 +110,20 @@ app.use(function(req,res,next) {
   next();
 })
 
+//custom middleware - is user logged in
+app.use(function(req,res,next){
+  req.getUser = function(){
+    return req.session.user || false;
+  }
+
+  //trigger next middleware
+  next();
+});
+
 //load routes
 app.use('/',require('./controllers/main.js'));
 app.use('/auth',require('./controllers/auth.js'));
+app.use('/email',require('./controllers/email.js'));
 
 //listen for connections
 app.listen(3000);

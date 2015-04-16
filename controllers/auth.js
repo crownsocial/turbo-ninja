@@ -18,6 +18,8 @@ router.post('/login',function(req,res){
         req.login(user,function(err){
           if(err) throw err;
           req.flash('success','You are now logged in.');
+          req.session.x = req.body.email;
+          console.log(req.session.x);
           res.redirect('/');
         })
       }else{
@@ -42,6 +44,24 @@ router.get('/signup',function(req,res){
 router.post('/signup',function(req,res){
     //do sign up here (add user to database)
 
+    db.user.find({where: {email: req.body.email}}).then(function(data){
+      // data = data.map(function(u) { return u.email});
+      if(typeof data === 'undefined'){
+        //already in database; please log in
+        console.log("this is firing")
+      }else{
+        //register in database
+        db.user.create({
+          email: req.body.email,
+          name: req.body.name,
+          password: req.body.password
+        })
+      }
+    });
+// .catch(function(error) {
+//   console.log("something happened");
+//   console.log(error);
+// })
     //user is signed up forward them to the home page
     res.redirect('/');
 });
@@ -67,7 +87,7 @@ router.get('/login/:provider',function(req,res) {
 //oAuth callback route
 router.get('/callback/:provider',function(req,res){
   if (ALLOWED_PROVIDERS.indexOf(req.params.provider) === -1){
-    return res.send('invalid profider url.');
+    return res.send('invalid provider url.');
   }
       passport.authenticate(req.params.provider, function(err,user,info){
       if(user){
