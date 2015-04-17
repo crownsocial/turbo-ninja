@@ -59,7 +59,7 @@ body {
 
   border-color: #f20d63; /* fallback */
   border-color: rgba(0, 233, 236, 1);
-
+  color: #fff;
 /*  color: #bbfcff;  fallback
 color: rgba(187, 252, 255, 1);*/
 
@@ -97,7 +97,7 @@ a.mainlink:link, a.mainlink:hover, a.mainlink:active, a.mainlink:visited {
   font-size:22px;
   color:#fff;
   background-color: #f20d63;
-  width:300px;
+  width:400px;
   position:absolute;
   left:10px;
   top:-50px;
