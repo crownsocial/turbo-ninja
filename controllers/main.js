@@ -14,7 +14,7 @@ router.get('/restricted',function(req,res){
     if(req.isAuthenticated()){
     res.render('main/restricted');
   }else{
-    req.flash('danger','You must be logged in to access that page');
+    req.flash('boom','You must be logged in to access that page');
     res.redirect('/');
   }
 });

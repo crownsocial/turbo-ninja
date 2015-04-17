@@ -24,11 +24,11 @@ email.addTo(to);
 email.setFrom(to);
 email.setSubject('[MeMail] to '+req.session.x);
 email.setText(req.body.content);
-email.setHtml('Wait a minute...<br><br><strong>%how% <br><br><h1>wow cool okay</h1></strong>');
+email.setHtml('<h1 style=\"background-color:#000;color:#fff\">An important message from you:</h1><br><br><strong><font size=20>%how%</font> <br><br><br><br><br><br><br><br><br><br><br></strong>---------------------------------------------------------------------- ////////<strong><h1>Btw you\'re awesome for using</h1><font size=20 style=\"background-color:#f20d63;color:#fff\">MeMail&trade;</font></strong><br><a style=\"background-color:#00faf7;color:blue\" href=http://memail.herokuapp.com>http://memail.com</a><br><br><br><br>');
 email.addSubstitution("%how%", req.body.content);
 email.addHeader('X-Sent-Using', 'SendGrid-API');
 email.addHeader('X-Transport', 'web');
-// email.addFile({path: __dirname+'/../public/images/stalk-much.jpg', filename: 'stalk-much.jpg'});
+email.addFile({path: __dirname+'/../public/images/we_logo_bk.png', filename: 'just a fun image to surprise and delight yourself because you\'re such a kingpin.jpg'});
 
 sendgrid.send(email, function(err, json) {
   if (err) { return console.error(err); }
@@ -36,7 +36,7 @@ sendgrid.send(email, function(err, json) {
 });
 
       //end sendgrid
-      req.flash('success','Your message was sent!');
+      req.flash('boom','Your message was sent!');
       res.render('main/restricted');
       console.log("the data "+data.id)
       console.log(req.session.x)

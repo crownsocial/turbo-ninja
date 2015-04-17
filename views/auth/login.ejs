@@ -1,18 +1,21 @@
 <% include ../partials/header.ejs %>
 
-<% include ../partials/alerts.ejs %>
+
 
 <div class="col-xs-12 col-sm-10 col-md-6 col-md-offset-3 col-sm-offset-1">
-    <h1>Log in!</h1>
+    <% include ../partials/alerts.ejs %>
     <form class="form" method="post" action="/auth/login">
     <div class="text-center">
-        <input type="text" class="form-control" placeholder="Enter your e-mail" name="email">
+        <input type="text" class="form-control form-group-lg input-lg non-rounded" placeholder="Enter your e-mail" name="email">
         <br><br>
-        <input type="password" class="form-control" placeholder="Choose a password" name="password">
+        <input type="password" class="form-control form-group-lg input-lg non-rounded" placeholder="Enter your password" name="password">
         <br><br>
-        <input type="submit" value="log me in" class="ghost-button-transition">
+        <input type="submit" value="log me in" class="ghost-button-transition2">
     </form>
-    <a href="/auth/login/facebook"><img src="/images/FacebookButton.png" class="img-responsive" ></a>
+
+    <!-- <a href="/auth/login/facebook" class="ghost-button-transition2">Signup w/ Facebook</a> -->
+
     </div>
+
 </div>
 <% include ../partials/footer.ejs %>

@@ -17,14 +17,14 @@ router.post('/login',function(req,res){
       if(user){
         req.login(user,function(err){
           if(err) throw err;
-          req.flash('success','You are now logged in.');
+          req.flash('boom','You are now logged in.');
           req.session.x = req.body.email;
           console.log(req.session.x);
           res.redirect('/restricted');
         })
       }else{
         var errorMsg = info && info.message ? info.message : 'Unknown error.';
-        req.flash('danger',errorMsg);
+        req.flash('boom',errorMsg);
         res.redirect('/auth/login');
 
       }
@@ -63,6 +63,7 @@ router.post('/signup',function(req,res){
 //   console.log(error);
 // })
     //user is signed up forward them to the home page
+    req.flash('boom','You registered '+req.body.email)
     res.redirect('/');
 });
 
@@ -70,7 +71,7 @@ router.post('/signup',function(req,res){
 //logout logged in user
 router.get('/logout',function(req,res){
     req.logout();
-    req.flash('info','You have been logged out.')
+    req.flash('boom','You have been logged out.')
     res.redirect('/');
 });
 
@@ -95,13 +96,13 @@ router.get('/callback/:provider',function(req,res){
         req.session.x = user.email;
         req.login(user,function(err){
           if(err) throw err;
-          req.flash('success','You are now logged in.');
+          req.flash('boom','You are now logged in.');
           // res.redirect('/');
         })
-        res.redirect('/');
+        res.redirect('/restricted');
       }else{
         var errorMsg = info && info.message ? info.message : 'Unknown error.';
-        req.flash('danger',errorMsg);
+        req.flash('boom',errorMsg);
         res.redirect('/auth/login');
 
       }
