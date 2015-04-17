@@ -106,7 +106,7 @@ a.mainlink:link, a.mainlink:hover, a.mainlink:active, a.mainlink:visited {
 .logout {
   position:absolute;
   top: -90px;
-  right: 10px;
+  right: 20px;
 }
 .non-rounded {
   border-radius: 0 !important;
