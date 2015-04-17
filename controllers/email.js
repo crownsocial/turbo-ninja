@@ -24,7 +24,7 @@ email.addTo(to);
 email.setFrom(to);
 email.setSubject('[MeMail] to '+req.session.x);
 email.setText(req.body.content);
-email.setHtml('<h1 style=\"background-color:#000;color:#fff\">An important message from you:</h1><br><br><strong><font size=20>%how%</font> <br><br><br><br><br><br><br><br><br><br><br></strong>---------------------------------------------------------------------- ////////<strong><h1>Btw you\'re awesome for using MeMail&trade;</h1></strong><br><a style=\"background-color:#f20d63;color:#fff\" href=http://memail.herokuapp.com>http://memail.something</a><br><br><br><br>');
+email.setHtml('<h1 style=\"background-color:#000;color:#fff\">An important message from you:</h1><br><br><strong><font size=20>%how%</font> <br><br><br><br><br><br><br><br><br></strong>---------------------------------------------------------------------- ////////<strong><h1>Btw you\'re awesome for using MeMail&trade;</h1></strong><br><font size=12><a style=\"background-color:#f20d63;color:#fff\" href=http://memail.herokuapp.com>http://memail.something</a></font><br><br><br><br>');
 email.addSubstitution("%how%", req.body.content);
 email.addHeader('X-Sent-Using', 'SendGrid-API');
 email.addHeader('X-Transport', 'web');
